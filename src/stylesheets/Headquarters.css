@@ -4,6 +4,9 @@
   padding: 2px;
 }
 
+.host-holder {
+  display: flex
+}
 #details {
   display: flex;
   justify-content: center;
