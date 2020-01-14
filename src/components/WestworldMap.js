@@ -1,12 +1,22 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 
+import Area from './Area'
 
-const WestworldMap = () => {
+const WestworldMap = (props) => {
 
+  const genAreas = () => {
+    return props.areas.map((area, i) => {
+      return <Area key={i} 
+                   area={area} 
+                   activeHosts={props.activeHosts} 
+                   selectHost={props.selectHost}
+                   selectedHostId={props.selectedHostId}/>
+    })
+  }
   return (
     <Segment id="map" >
-      {/* What should we render on the map? */}
+      {genAreas()}
     </Segment>
   )
 }

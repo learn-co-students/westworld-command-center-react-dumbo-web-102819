@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import '../stylesheets/Headquarters.css';
 import { Grid } from 'semantic-ui-react';
+
 import Details from './Details'
+import ColdStorage from './ColdStorage'
+import LogPanel from './LogPanel'
 
 
 class Headquarters extends Component {
@@ -11,17 +14,20 @@ class Headquarters extends Component {
     return(
       <Grid celled='internally'>
         <Grid.Column width={8}>
-
-        {/* Something goes here.... */}
-
+          <ColdStorage inactiveHosts={this.props.inactiveHosts} 
+                       selectHost={this.props.selectHost}
+                       selectedHostId={this.props.selectedHostId}/>
         </Grid.Column>
         <Grid.Column width={5}>
-          <Details />
+          <Details areas={this.props.areas}
+                   selectedHost={this.props.selectedHost} 
+                   toggleActive={this.props.toggleActive}
+                   setHostArea={this.props.setHostArea}/>
         </Grid.Column>
         <Grid.Column width={3}>
-
-        {/* and here. Take visual cues from the screenshot/video in the Readme. */}
-
+          <LogPanel activateAll={this.props.activateAll}
+                    deactivateAll={this.props.deactivateAll}
+                    logs={this.props.logs}/>
         </Grid.Column>
       </Grid>
     )
